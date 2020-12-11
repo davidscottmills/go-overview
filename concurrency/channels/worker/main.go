@@ -3,12 +3,11 @@ package main
 import "fmt"
 
 type worker struct {
-	id      int
-	jobs    <-chan int
-	results chan<- string
+	id      int           // id to track the worker
+	jobs    <-chan int    // read only jobs chan
+	results chan<- string // write only results chan
 }
 
-// We pass the same jobs chan when creating the worker, as we want all workers reading from the same channel
 func newWorker(id int, jobs <-chan int, results chan<- string) *worker {
 	return &worker{id, jobs, results}
 }
@@ -22,7 +21,7 @@ func (w *worker) doWork() {
 }
 
 func main() {
-	numJobs := 100
+	numJobs := 10
 
 	jobs := make(chan int)
 	results := make(chan string)
@@ -46,6 +45,7 @@ func main() {
 		// read result
 		res := <-results
 		fmt.Println(res)
+		// notice how jobs are processed out of order, as workers have availibility
 	}
 
 	close(jobs)

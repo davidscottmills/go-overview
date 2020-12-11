@@ -19,5 +19,5 @@ func main() {
 	go someExpensiveTask(done)
 	// do other stuff
 	<-done
-	fmt.Println("done")
+	fmt.Println("Done")
 }

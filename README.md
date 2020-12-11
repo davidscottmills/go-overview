@@ -7,11 +7,11 @@
 
 ## Go as a language
 
-- Originally developed by Google to address critisisms of other languages. The designers were primarily motivated by their shared dislike of C++.
+- Originally developed by Google to address criticisms of other languages. The designers were primarily motivated by their shared dislike of C++.
 - Statically typed
 - Similar to C (but memory safe, with garbage collection and structural typing)
 - Great for concurrency
-- v1.0 was publically released in March 2012
+- v1.0 was publicly released in March 2012
 
 ## Why I think you should learn (and use) Go
 
@@ -654,7 +654,7 @@ func factorial(x uint) uint {
 }
 ```
 
-## Go Routines
+## Goroutines
 
 - A goroutine is a lightweight thread managed by the Go runtime.
   ```go
@@ -669,7 +669,7 @@ func factorial(x uint) uint {
 
 ### Channels
 
-- Channels are a typed conduit through which you can send and receive values with the channel operator, <-. They are useful for syncing and allowing different go routines to communicate.
+- Channels are a typed conduit through which you can send and receive values with the channel operator, <-. They are useful for syncing and allowing different goroutines to communicate.
 - By default, sends and receives block until the other side is ready. This allows goroutines to synchronize without explicit locks or condition variables.
 
 ```go
@@ -689,7 +689,7 @@ ch := make(chan int, 100)
 
 ### Range and Close
 
-- Senders can close (`close(c)`)a channel to indicate that no more values will be sent
+- Senders can close (`close(c)`) a channel to indicate that no more values will be sent
 - Receivers can test whether a channel has been closed by assigning a second parameter to the receive expression:
 
 ```go

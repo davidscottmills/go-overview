@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func printInput(c <-chan string) {
+	// range over c until it is closed
 	for v := range c {
 		fmt.Println(v)
 	}
